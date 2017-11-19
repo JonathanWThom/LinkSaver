@@ -1,0 +1,7 @@
+{
+  "name": "link_saver",
+  "private": true,
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  }
+}
