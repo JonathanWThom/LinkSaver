@@ -5,5 +5,14 @@
 @import "bourbon";
 @import "neat";
 
-@import "base/base";
 @import "refills/flashes";
+
+.container {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 20px;
+}
+
+.text-align-center {
+  text-align: center;
+}
