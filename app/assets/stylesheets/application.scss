@@ -19,9 +19,15 @@
 
 .delete {
   a {
+    color: black;
     margin-left: 20px;
-    color: red;
     text-decoration: none;
   }
+}
 
+.sorting-links {
+  a:visited {
+    color: blue;
+    text-decoration: none;
+  }
 }

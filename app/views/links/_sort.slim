@@ -1,0 +1,5 @@
+.sorting-links
+  - if params[:oldest]
+    = link_to "sort by newest", links_path
+  - else
+    = link_to "sort by oldest", links_path(oldest: true)

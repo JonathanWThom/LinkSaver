@@ -1,6 +1,10 @@
 class LinksController < ApplicationController
   def index
-    @links = Link.newest_first
+    if params[:oldest]
+      @links = Link.oldest_first
+    else
+      @links = Link.newest_first
+    end
   end
 
   def create
