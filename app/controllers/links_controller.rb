@@ -1,9 +1,9 @@
 class LinksController < ApplicationController
   def index
     if params[:oldest]
-      @links = Link.oldest_first
+      @links = Link.oldest_first.page params[:page]
     else
-      @links = Link.newest_first
+      @links = Link.newest_first.page params[:page]
     end
   end
 
