@@ -10,6 +10,7 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.create(link_params)
     if @link.valid?
+      TitleScraperJob.new(@link.id).perform
       flash[:notice] = "Link added"
     else
       flash[:error] = "Invalid URL"

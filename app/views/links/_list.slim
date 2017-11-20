@@ -1,6 +1,6 @@
 - @links.each do |link|
   p
-    span = link_to link.url, link.url
+    span = link_to link.title_or_url, link.url
     span.delete = link_to "x", link_path(link),
       data: {confirm: 'are you sure?'},
       method: :delete
