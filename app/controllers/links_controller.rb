@@ -1,14 +1,14 @@
 class LinksController < ApplicationController
   def index
     if params[:oldest]
-      @links = Link.oldest_first.page params[:page]
+      @links = current_user.links.oldest_first.page params[:page]
     else
-      @links = Link.newest_first.page params[:page]
+      @links = current_user.links.newest_first.page params[:page]
     end
   end
 
   def create
-    @link = Link.create(link_params)
+    @link = current_user.links.create(link_params)
     if @link.valid?
       flash[:notice] = "Link added"
     else

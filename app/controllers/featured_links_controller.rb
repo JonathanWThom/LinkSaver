@@ -1,5 +1,5 @@
 class FeaturedLinksController < ApplicationController
   def index
-    @links = Link.featured
+    @links = Link.featured(current_user)
   end
 end

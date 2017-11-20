@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
+  belongs_to :user
+
   validates :url, presence: true, url: true
 
   scope :newest_first, -> { order(created_at: :desc) }
@@ -7,18 +9,18 @@ class Link < ActiveRecord::Base
 
   paginates_per 10
 
-  def self.featured
-    if Link.count > 3
-      oldest = Link.oldest_first.first
-      newest = Link.newest_first.first
-      random = random_link([oldest.url, newest.url])
+  def self.featured(user)
+    if user.links.count > 3
+      oldest = user.links.oldest_first.first
+      newest = user.links.newest_first.first
+      random = random_link([oldest.url, newest.url], user)
       [oldest, newest, random].shuffle
     else
       []
     end
   end
 
-  def self.random_link(urls)
-    Link.random.where.not(url: urls).first
+  def self.random_link(urls, user)
+    user.links.random.where.not(url: urls).first
   end
 end
