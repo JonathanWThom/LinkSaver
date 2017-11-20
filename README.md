@@ -6,11 +6,14 @@ Currently on Version 1 of a simple link aggregator app.
 
 You can visit it at [link-savr.herokuapp.com](https://link-savr.herokuapp.com).
 
-* Goals for V1:
+* Completed for V1
   - Link sorting and pagination
   - "Read now" link
   - "Featured" page
   - Worker that deletes old links after a month
+
+* Completed for V2
+  - Grabs pages titles automatically
 
 * Goals for V2
   - Preview simple html content of linked pages
