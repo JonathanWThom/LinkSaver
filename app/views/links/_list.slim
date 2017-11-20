@@ -5,4 +5,7 @@
       data: {confirm: 'Are you sure?'},
       method: :delete
 
-= paginate @links
+- paginate = paginate || false
+
+- if paginate
+  = paginate @links
