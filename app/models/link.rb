@@ -8,10 +8,14 @@ class Link < ActiveRecord::Base
   paginates_per 10
 
   def self.featured
-    oldest = Link.oldest_first.first
-    newest = Link.newest_first.first
-    random = random_link([oldest.url, newest.url])
-    [oldest, newest, random].shuffle
+    if Link.count > 3
+      oldest = Link.oldest_first.first
+      newest = Link.newest_first.first
+      random = random_link([oldest.url, newest.url])
+      [oldest, newest, random].shuffle
+    else
+      []
+    end
   end
 
   def self.random_link(urls)

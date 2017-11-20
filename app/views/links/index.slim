@@ -1,6 +1,16 @@
 h3 All
 
-= link_to "featured", featured_path
-= render "links/form"
-= render "links/sort"
-= render "links/list", paginate: true
+- if Link.count > 3
+  p
+    = link_to "featured", featured_path
+- if Link.count > 0
+  p
+    = link_to "read this now", random_link_path
+p
+  = render "links/form"
+- if Link.count > 1
+  p
+    = render "links/sort"
+- if Link.any?
+  p
+    = render "links/list", paginate: true
