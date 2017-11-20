@@ -10,13 +10,17 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.create(link_params)
     if @link.valid?
-      TitleScraperJob.perform_later(@link.id)
+      PageContentBuilder.new(@link.id).run
       flash[:notice] = "Link added"
     else
       flash[:error] = "Invalid URL"
     end
 
     redirect_to links_path
+  end
+
+  def show
+    @link = Link.find(params[:id])
   end
 
   def destroy
