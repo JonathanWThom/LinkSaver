@@ -2,7 +2,7 @@
 
 ## Description
 
-Currently on Version 1 of a simple link aggregator app.
+Currently on Version 2 of a simple link aggregator app.
 
 You can visit it at [link-savr.herokuapp.com](https://link-savr.herokuapp.com).
 
@@ -14,12 +14,15 @@ You can visit it at [link-savr.herokuapp.com](https://link-savr.herokuapp.com).
 
 * Completed for V2
   - Grabs pages titles automatically
+  - Preview simple html content of linked pages
 
 * Goals for V2
-  - Preview simple html content of linked pages
+  - More complete test coverage
 
 * Goals for V3
   - Chrome extension
+  - Favorites section
+  - Improve styling & performance
 
 * Goal for V4
   - Convert to API and mobile app.
