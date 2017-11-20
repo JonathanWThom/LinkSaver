@@ -1,6 +1,8 @@
 - if current_user.delete_links
-  p Links older than month will be automatically deleted.
-  = link_to "turn this off", delete_links_path, method: :patch
+  p
+    span.delete-prompt links older than month will be automatically deleted.
+    span = link_to "turn this off", delete_links_path, method: :patch
 - else
-  p You can choose to have links older than 1 month automatically deleted
-  = link_to "turn this on", delete_links_path, method: :patch
+  p
+    span.delete-prompt you can choose to have links older than 1 month automatically deleted.
+    span = link_to "turn this on", delete_links_path, method: :patch

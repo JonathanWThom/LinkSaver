@@ -1,18 +1,28 @@
-h3 All
+h3 all links
+
+- if current_user.links.count > 0
+  p
+    = link_to "read now", random_link_path
 
 - if current_user.links.count > 3
   p
     = link_to "featured", featured_path
-- if current_user.links.count > 0
-  p
-    = link_to "read this now", random_link_path
+hr
+
 p
   = render "links/form"
+hr
+
 - if current_user.links.count > 1
   p
     = render "links/sort"
+  hr
+
 - if current_user.links.any?
   p
     = render "links/list", paginate: true
+  hr
+
 p
   = render "links/delete_old_links", paginate: true
+hr

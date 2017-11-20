@@ -15,14 +15,13 @@
 </head>
 <body class="<%= body_class %>">
   <div class="container">
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
     <%= render "flashes" -%>
+    <h3>link saver</h3>
+    <hr>
     <%= yield %>
+    <% if signed_in? %>
+      <%= button_to "sign out", sign_out_path, method: :delete %>
+    <% end %>
     <%= render "javascript" %>
     <%= render "css_overrides" %>
   </div>

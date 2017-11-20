@@ -13,6 +13,14 @@
   margin-top: 30px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+  }
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -29,5 +37,30 @@
   a:visited {
     color: blue;
     text-decoration: none;
+  }
+}
+
+.link_url {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.delete-prompt {
+  margin-right: 20px;
+}
+
+.submit-field, .password-field {
+  margin-top: 10px;
+}
+
+$styles: margin padding;
+$directions: left right top bottom;
+
+@each $style in $styles {
+  @for $i from 0 through 50 {
+    .#{$style}-#{$i} { #{$style}: #{$i}px; }
+    @each $direction in $directions {
+      .#{$style}-#{$direction}-#{$i} { #{$style}-#{$direction}: #{$i}px }
+    }
   }
 }
