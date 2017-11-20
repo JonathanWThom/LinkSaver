@@ -4,6 +4,8 @@
 
 Currently on Version 1 of a simple link aggregator app.
 
+You can visit it at [link-savr.herokuapp.com](https://link-savr.herokuapp.com).
+
 * Goals for V1:
   - Link sorting and pagination
   - "Read now" link
