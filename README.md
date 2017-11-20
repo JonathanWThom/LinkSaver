@@ -1,36 +1,28 @@
-# Link saver
+# Link Saver
 
-## Getting Started
+## Description
 
-After you have cloned this repo, run this setup script to set up your machine
-with the necessary dependencies to run and test this app:
+Currently on Version 1 of a simple link aggregator app.
 
-    % ./bin/setup
+* Goals for V1:
+  - Link sorting and pagination
+  - "Read now" link
+  - "Featured" page
+  - Worker that deletes old links after a month
 
-It assumes you have a machine equipped with Ruby, Postgres, etc. If not, set up
-your machine with [this script].
+* Goals for V2
+  - Preview simple html content of linked pages
 
-[this script]: https://github.com/thoughtbot/laptop
+* Goals for V3
+  - Chrome extension
 
-After setting up, you can run the application using [Heroku Local]:
+* Goal for V4
+  - Convert to API and mobile app.
 
-    % heroku local
+## Tech
 
-[Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
+Initial set up done with the help of Thoughtbot's [Suspenders](https://github.com/thoughtbot/suspenders).
 
-## Guidelines
+## Contributing
 
-Use the following guides for getting things done, programming well, and
-programming in style.
-
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
-
-## Deploying
-
-If you have previously run the `./bin/setup` script,
-you can deploy to staging and production with:
-
-    % ./bin/deploy staging
-    % ./bin/deploy production
+Pull request are welcome!
