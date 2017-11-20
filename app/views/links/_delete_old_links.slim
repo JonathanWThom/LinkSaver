@@ -1,0 +1,6 @@
+- if current_user.delete_links
+  p Links older than month will be automatically deleted.
+  = link_to "turn this off", delete_links_path, method: :patch
+- else
+  p You can choose to have links older than 1 month automatically deleted
+  = link_to "turn this on", delete_links_path, method: :patch

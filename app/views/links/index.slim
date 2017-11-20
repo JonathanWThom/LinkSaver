@@ -14,3 +14,5 @@ p
 - if current_user.links.any?
   p
     = render "links/list", paginate: true
+p
+  = render "links/delete_old_links", paginate: true
