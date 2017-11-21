@@ -5,7 +5,9 @@
 - if current_user.links.count > 3
   p
     = link_to "featured", featured_path
-hr
+
+- if current_user.links.count > 0
+  hr
 
 p
   = render "links/form"
