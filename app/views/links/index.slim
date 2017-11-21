@@ -1,24 +1,24 @@
-- if current_user.links.count > 0
+- if link_count > 0
   p
     = link_to "read now", random_link_path
 
-- if current_user.links.count > 3
+- if link_count > 3
   p
     = link_to "featured", featured_path
 
-- if current_user.links.count > 0
+- if link_count > 0
   hr
 
 p
   = render "links/form"
 hr
 
-- if current_user.links.count > 1
+- if link_count > 1
   p
     = render "links/sort"
   hr
 
-- if current_user.links.any?
+- if link_count > 0
   p
     = render "links/list", paginate: true
   hr
