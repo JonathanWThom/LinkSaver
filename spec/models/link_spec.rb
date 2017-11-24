@@ -23,17 +23,6 @@ describe Link do
     end
   end
 
-  def self.featured(user)
-    if user.links.count > 3
-      oldest = user.links.oldest_first.first
-      newest = user.links.newest_first.first
-      random = random_link([oldest.url, newest.url], user)
-      [oldest, newest, random].shuffle
-    else
-      []
-    end
-  end
-
   describe ".random_link" do
     attr_reader :user, :link_1, :link_5
 
@@ -46,6 +35,7 @@ describe Link do
       @link_5 = create(:link)
     end
 
+    ## this does not work as it should
     it "should return a link that is not one of the ones passed into the argument" do
       user = create(:user)
       link_1 = create(:link, user: user)

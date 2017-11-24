@@ -28,4 +28,8 @@ class Link < ActiveRecord::Base
   def title_or_url
     title || url
   end
+
+  def reading_time
+    html_preview.reading_time :format => :approx
+  end
 end
