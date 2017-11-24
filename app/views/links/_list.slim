@@ -1,6 +1,6 @@
 - @links.each do |link|
   p
-    span.margin-right-5
+    span.margin-right-10
       = render "links/favorites", link: link
     span = link_to link.title_or_url, link.url
     - if link.html_preview
