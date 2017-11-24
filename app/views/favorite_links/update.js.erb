@@ -1,0 +1,2 @@
+new_partial = "<%= j render 'links/favorites', link: @link %>";
+$('.favorite[data-link-id="<%= @link.id %>"]').replaceWith(new_partial);

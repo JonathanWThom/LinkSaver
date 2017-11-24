@@ -1,5 +1,7 @@
 - @links.each do |link|
   p
+    span.margin-right-5
+      = render "links/favorites", link: link
     span = link_to link.title_or_url, link.url
     - if link.html_preview
       span.margin-left-10 = link.reading_time
@@ -7,8 +9,6 @@
     span.delete = link_to "x", link_path(link),
       data: {confirm: "are you sure?"},
       method: :delete
-
-
 
 - paginate = paginate || false
 

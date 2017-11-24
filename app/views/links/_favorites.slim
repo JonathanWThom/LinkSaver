@@ -1,0 +1,11 @@
+span.favorite data-link-id=link.id
+  - if link.favorite
+    = link_to image_tag("blue_star.png"),
+      favorite_link_path(link),
+      remote: true,
+      method: :patch
+  - else
+    = link_to image_tag("blue_star_outline.png"),
+      favorite_link_path(link),
+      remote: true,
+      method: :patch
