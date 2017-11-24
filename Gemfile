@@ -55,8 +55,10 @@ group :test do
   gem "formulaic"
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem "launchy"
+  gem "rails-controller-testing"
   gem "shoulda-matchers"
   gem "simplecov", require: false
+  gem "sinatra"
   gem "timecop"
   gem "webmock"
 end
