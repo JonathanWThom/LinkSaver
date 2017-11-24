@@ -1,4 +1,8 @@
 class FavoriteLinksController < ApplicationController
+  def index
+    @links = current_user.links.where(favorite: true)
+  end
+
   def update
     @link = Link.find(params[:id])
 

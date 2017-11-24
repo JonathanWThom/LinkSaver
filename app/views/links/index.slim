@@ -6,6 +6,10 @@
   p
     = link_to "featured", featured_path
 
+- if link_count > 1
+  p
+    = link_to "favorites", favorite_links_path
+
 - if link_count > 0
   hr
 
