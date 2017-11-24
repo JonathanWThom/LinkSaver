@@ -7,6 +7,7 @@ class Link < ActiveRecord::Base
   scope :oldest_first, -> { order(created_at: :asc) }
   scope :random, -> { order("RANDOM()") }
   scope :one_month_old, -> { where("updated_at < ?", 1.month.ago) }
+  scope :favorites, ->(user) { where(favorite: true).where(user_id: user.id) }
 
   paginates_per 10
 

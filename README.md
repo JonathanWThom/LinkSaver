@@ -19,9 +19,9 @@ You can visit it at [link-savr.herokuapp.com](https://link-savr.herokuapp.com).
 * Completed for V3
   - Reading time estimates
   - Improved performance
+  - Favorites section
 
 * Goals for V3
-  - Favorites section
   - Improve styling
   - Search by title or url
   - More complete test coverage

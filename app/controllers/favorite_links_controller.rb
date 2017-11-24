@@ -1,6 +1,6 @@
 class FavoriteLinksController < ApplicationController
   def index
-    @links = current_user.links.where(favorite: true)
+    @links = Link.favorites(current_user)
   end
 
   def update
