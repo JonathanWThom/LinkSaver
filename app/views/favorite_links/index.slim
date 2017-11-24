@@ -1,5 +1,8 @@
 h3 favorites
 = link_to "all", links_path
 hr
-= render "links/list"
+- if @links.any?
+  = render "links/list"
+- else
+  p You don't have any favorites yet!
 hr
