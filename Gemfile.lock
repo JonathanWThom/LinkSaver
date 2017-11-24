@@ -9,6 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    Ascii85 (1.0.2)
     actioncable (5.1.4)
       actionpack (= 5.1.4)
       nio4r (~> 2.0)
@@ -48,6 +49,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    afm (0.2.2)
     arel (8.0.0)
     autoprefixer-rails (7.1.6)
       execjs
@@ -119,6 +121,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashdiff (0.3.7)
+    hashery (2.1.2)
     high_voltage (3.0.0)
     honeybadger (3.1.2)
     i18n (0.9.1)
@@ -165,6 +168,12 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    pdf-reader (2.0.0)
+      Ascii85 (~> 1.0.0)
+      afm (~> 0.2.1)
+      hashery (~> 2.0)
+      ruby-rc4
+      ttfunk
     pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -240,6 +249,7 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
+    ruby-rc4 (0.1.5)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
     sass (3.5.3)
@@ -301,6 +311,7 @@ GEM
     title (0.0.7)
       i18n
       rails (>= 3.1)
+    ttfunk (1.5.1)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -349,6 +360,7 @@ DEPENDENCIES
   launchy
   listen
   neat (~> 2.1)
+  pdf-reader
   pg
   pry-byebug
   pry-rails
