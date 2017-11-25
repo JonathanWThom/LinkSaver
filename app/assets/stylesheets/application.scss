@@ -13,14 +13,6 @@
   margin-top: 30px;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 10px;
-  }
-}
-
 .text-align-center {
   text-align: center;
 }
@@ -43,6 +35,10 @@
 .link_url {
   display: inline-block;
   margin-right: 20px;
+}
+
+#link_url {
+  width: 25vw;
 }
 
 .delete-prompt {
@@ -69,5 +65,17 @@ $directions: left right top bottom;
   img {
     width: 15px;
     height: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+  }
+
+  #link_url {
+    width: 50vw;
   }
 }
