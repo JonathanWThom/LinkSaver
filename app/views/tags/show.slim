@@ -1,0 +1,19 @@
+= link_to "back", :back
+hr
+
+button.no-pointer style="#{@tag.style}"
+  = @tag.title
+hr
+
+- if @links.any?
+  = render "links/list"
+
+- else
+  p = "You haven't saved anything to #{@tag.title} yet."
+
+hr
+
+= link_to "delete this tag. your links will be saved.",
+  tag_path(@tag), method: :delete
+
+hr

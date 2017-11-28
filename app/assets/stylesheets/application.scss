@@ -30,13 +30,17 @@
   }
 }
 
-.link_url {
+.link_url, .tag_title {
   display: inline-block;
   margin-right: 20px;
 }
 
-#link_url {
+#link_url, #tag_title {
   width: 25vw;
+}
+
+#tag_color {
+  margin-right: 20px;
 }
 
 .delete-prompt {
@@ -76,4 +80,20 @@ $directions: left right top bottom;
   #link_url {
     width: 50vw;
   }
+}
+
+.circle {
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.no-pointer {
+  pointer-events: none;
 }

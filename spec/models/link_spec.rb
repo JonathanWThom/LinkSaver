@@ -1,5 +1,7 @@
 describe Link do
   it { should belong_to :user }
+  it { should have_many :categories }
+  it { should have_many(:tags).through(:categories) }
   it { should validate_presence_of :url }
 
   describe ".featured" do

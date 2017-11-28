@@ -1,0 +1,4 @@
+= simple_form_for Tag.new do |f|
+  = f.input :title, label: false, placeholder: "tag name"
+  = f.color_field :color, label: false
+  = f.submit "create tag"

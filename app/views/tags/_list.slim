@@ -1,0 +1,5 @@
+.margin-top-20
+- @tags.each do |tag|
+  = link_to tag_path(tag) do
+    button.margin-right-10 style="#{tag.style}"
+      = tag.title

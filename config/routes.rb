@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "featured", to: "featured_links#index"
   patch "delete_links", to: "users/user_link_deletion_settings#update"
   resources :favorite_links, only: [:index, :update]
+  resources :tags, only: [:create, :show, :destroy]
+  resources :categories, only: [:create]
 end
