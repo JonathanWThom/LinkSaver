@@ -20,6 +20,7 @@ You can visit it at [link-savr.herokuapp.com](https://link-savr.herokuapp.com).
   - Reading time estimates
   - Improved performance
   - Favorites section
+  - Tags
 
 * Goals for V3
   - Improve styling
