@@ -5,19 +5,19 @@ describe LinksController do
     @user = create(:user)
   end
 
-  describe "GET links#index", type: :request do
+  describe "GET links#index", type: :request, format: :html do
     it "will succeed" do
-      get links_path(user, as: user)
+      get links_path(as: user)
       expect(response.status).to eq(200)
     end
 
     it "will redirect a non logged in user" do
-      get links_path(user)
+      get links_path
       expect(response.status).to eq(302)
     end
 
     it "will succeed with oldest params" do
-      get links_path(user, as: user, oldest: true)
+      get links_path(as: user, oldest: true)
       expect(response.status).to eq(200)
     end
   end

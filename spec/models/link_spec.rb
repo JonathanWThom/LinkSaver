@@ -44,7 +44,7 @@ describe Link do
       link_2 = create(:link, user: user)
       link_3 = create(:link, user: user)
       link_4 = create(:link, user: user)
-      expect(Link.random_link([link_1], user)).to_not eq(link_1)
+      expect(Link.random_link([link_1.url], user)).to_not eq(link_1)
     end
 
     it "should not return a link that does not below to the user" do

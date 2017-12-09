@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :favorite_links, only: [:index, :update]
   resources :tags, only: [:create, :show, :destroy]
   resources :categories, only: [:create]
+  post 'auth/login', to: 'authentication#api_authenticate'
 end

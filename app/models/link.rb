@@ -25,7 +25,7 @@ class Link < ActiveRecord::Base
   end
 
   def self.random_link(urls, user)
-    user.links.random.where.not(url: urls).first
+    user.links.where.not(url: urls).random.first
   end
 
   def title_or_url
