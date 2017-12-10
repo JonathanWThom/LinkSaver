@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Clearance::Controller
   include Response
   include ExceptionHandler
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, unless: :json_request?
   before_action :require_login, unless: :json_request?
   before_action :authorize_request, if: :json_request?
 
