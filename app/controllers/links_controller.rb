@@ -12,13 +12,6 @@ class LinksController < ApplicationController
       format.html
       format.json { render json: @links, status: 200 }
     end
-
-#     $.ajax({
-#   dataType: "json",
-#   url: "http://localhost:3000/links",
-#   method: "GET",
-#   headers: { "Authorization" :"auth_token"},
-# }).done(function(data) {console.log(data)});
   end
 
   def create
@@ -37,14 +30,6 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :bad_request }
       end
     end
-
-#     $.ajax({
-#   dataType: "json",
-#   url: "http://localhost:3000/links",
-#   method: "POST",
-#   headers: { "Authorization" :"auth_token"},
-#   data: {link: {url: "https://www.google.com"}}
-# }).done(function(data) {console.log(data)});
   end
 
   def show
@@ -55,7 +40,7 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
     @link.destroy
 
-    redirect_to links_path
+    redirect_back fallback_location: links_path
   end
 
   private
