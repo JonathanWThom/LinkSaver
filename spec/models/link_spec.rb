@@ -51,4 +51,14 @@ describe Link do
       expect(Link.random_link([], user)).to_not eq(link_5)
     end
   end
+
+  describe ".search" do
+    it "will return links, case insensitively" do
+      user = create(:user)
+      link_1 = create(:link, user: user, title: "New York Times")
+      link_2 = create(:link, user: user, title: "Washington Post")
+      links = user.links.search("new")
+      expect(links).to eq ([link_1])
+    end
+  end
 end

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :tags, only: [:create, :show, :destroy]
   resources :categories, only: [:create]
   post 'auth/login', to: 'authentication#api_authenticate'
+  resources :link_searches, only: [:create]
 end
