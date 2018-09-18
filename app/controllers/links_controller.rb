@@ -1,5 +1,4 @@
 class LinksController < ApplicationController
-  skip_before_action :verify_authenticity_token
   def index
     if params[:oldest]
       @links = current_user.links.oldest_first.page params[:page]
