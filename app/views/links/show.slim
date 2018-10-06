@@ -4,4 +4,4 @@ h3
   = link_to @link.title_or_url, @link.url
 p
   = "Reading time: ~ #{@link.reading_time}"
-= simple_format @link.html_preview
+iframe srcdoc=@link.html_preview

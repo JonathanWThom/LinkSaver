@@ -1,4 +1,3 @@
-require "nokogiri"
 require "open-uri"
 
 class PageScraperJob < ApplicationJob
@@ -20,8 +19,8 @@ class PageScraperJob < ApplicationJob
   attr_reader :url
 
   def parse_html
-    page = Nokogiri::HTML(open(url))
-    page.css("body").to_html
+    uri = URI(url)
+    Net::HTTP.get_response(uri).body
   end
 
   def parse_pdf
