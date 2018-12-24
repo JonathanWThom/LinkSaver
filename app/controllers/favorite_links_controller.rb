@@ -1,11 +1,11 @@
 class FavoriteLinksController < ApplicationController
+  before_action :get_link, only: [:update]
+  
   def index
     @links = Link.favorites(current_user)
   end
 
   def update
-    @link = Link.find(params[:id])
-
     if @link.favorite
       @link.update(favorite: false)
     else
@@ -16,5 +16,11 @@ class FavoriteLinksController < ApplicationController
       format.js
       format.html { redirect_to links_path(current_user) }
     end
+  end
+
+  private
+
+  def get_link
+    @link ||= current_user.links.find(params[:id])
   end
 end
