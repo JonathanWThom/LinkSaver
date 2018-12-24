@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_action :get_link, only: [:show, :destroy]
+  
   def index
     if params[:oldest]
       @links = current_user.links.oldest_first.page params[:page]
@@ -32,12 +34,7 @@ class LinksController < ApplicationController
     end
   end
 
-  def show
-    @link = Link.find(params[:id])
-  end
-
   def destroy
-    @link = Link.find(params[:id])
     @link.destroy
 
     redirect_back fallback_location: links_path
@@ -47,5 +44,9 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:url)
+  end
+
+  def get_link
+    @link ||= current_user.links.find(params[:id])
   end
 end
