@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181225151822) do
+ActiveRecord::Schema.define(version: 20181225155326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,8 +73,10 @@ ActiveRecord::Schema.define(version: 20181225151822) do
     t.string "remember_token", limit: 128, null: false
     t.boolean "delete_links", default: true
     t.string "display_name"
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
+    t.index ["slug"], name: "index_users_on_slug"
   end
 
 end

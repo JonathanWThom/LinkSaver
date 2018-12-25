@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, :authorize_request, only: [:show]
+
   def update
     if current_user.update(user_params)
       flash[:notice] = "User updated"
@@ -7,6 +9,10 @@ class UsersController < ApplicationController
     end
 
     redirect_to links_path
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private

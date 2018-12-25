@@ -9,6 +9,7 @@ ruby "2.4.1"
 
 gem "autoprefixer-rails"
 gem "clearance"
+gem "data_migrate"
 gem "delayed_job_active_record"
 gem "flutie"
 gem "font-awesome-rails"
