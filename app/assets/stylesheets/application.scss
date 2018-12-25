@@ -75,6 +75,15 @@ iframe {
   width: 100%;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.no-link-styling {
+  color: black;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .container {
     margin-left: 5%;

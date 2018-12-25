@@ -42,7 +42,7 @@ class LinksController < ApplicationController
       if @link.update(public: !@link.public)
         flash[:notice] = "Link updated"
         respond_to do |format|
-          format.html { redirect_to links_path }
+          format.html { redirect_back fallback_location: links_path }
           format.json { render json: @link.to_json, status: :ok }
         end
       else
