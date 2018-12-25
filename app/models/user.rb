@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :tags
   has_many :public_links, -> { where(public: true) }, class_name: "Link"
 
-  validates_uniqueness_of :display_name, :email
+  validates_uniqueness_of :display_name, allow_blank: true
+  validates_uniqueness_of :email
 
   scope :deletion_on, -> { where(delete_links: true) }
 
