@@ -1,7 +1,6 @@
 - @links.each do |link|
-  div.link
-    = link_to link.title_or_url, link.url
-  div.margin-bottom-15
+  .margin-bottom-15
+    = render "links/link", link: link
     = render "links/metadata", link: link
 
 - paginate = paginate || false

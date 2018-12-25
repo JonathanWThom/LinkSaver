@@ -1,1 +1,12 @@
-h3 user!
+h3
+  = "public links for #{@user.human_readable_display_name}"
+hr
+
+- @links.each do |link|
+  .margin-bottom-15
+    = render "links/link", link: link
+
+- if current_user
+hr
+= link_to "home", links_path
+hr

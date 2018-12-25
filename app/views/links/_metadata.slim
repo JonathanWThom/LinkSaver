@@ -1,23 +1,24 @@
-span.margin-right-10
-  = render "links/favorites", link: link
-- if link.public?
-  span
-    = link_to link_path(link, public: false), method: :patch do
-      = fa_icon "globe",
-        title: "Link is public. Click icon to set to private.",
-        class: "clickable no-link-styling"
-- else
-  span
-    = link_to link_path(link, public: true), method: :patch do
-      = fa_icon "lock",
-        title: "Link is private. Click icon to set to public.",
-        class: "clickable no-link-styling"
-- if link.html_preview
-  span.margin-left-10 = link.reading_time
-  span.margin-left-10 = link_to "preview", link_path(link)
+div
+  span.margin-right-10
+    = render "links/favorites", link: link
+  - if link.public?
+    span
+      = link_to link_path(link, public: false), method: :patch do
+        = fa_icon "globe",
+          title: "Link is public. Click icon to set to private.",
+          class: "clickable no-link-styling"
+  - else
+    span
+      = link_to link_path(link, public: true), method: :patch do
+        = fa_icon "lock",
+          title: "Link is private. Click icon to set to public.",
+          class: "clickable no-link-styling"
+  - if link.html_preview
+    span.margin-left-10 = link.reading_time
+    span.margin-left-10 = link_to "preview", link_path(link)
 
-= render "tags/add_form", link: link
+  = render "tags/add_form", link: link
 
-span.delete = link_to "x", link_path(link),
-  data: {confirm: "are you sure?"},
-  method: :delete
+  span.delete = link_to "x", link_path(link),
+    data: {confirm: "are you sure?"},
+    method: :delete

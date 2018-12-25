@@ -12,7 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    # User.includes(:public_links).find(params[:id]) does not seem to hit the custom
+    # find method from Sluggable for some reason
     @user = User.find(params[:id])
+    @links = @user.public_links
   end
 
   private
