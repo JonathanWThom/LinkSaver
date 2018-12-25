@@ -20,7 +20,7 @@ module Sluggable
     end
 
     def self.find(input)
-      find_by!(slug: input)
+      input.to_i == 0 ? find_by(slug: input) : super
     end
   end
 end

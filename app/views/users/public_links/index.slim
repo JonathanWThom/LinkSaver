@@ -6,7 +6,9 @@ hr
   .margin-bottom-15
     = render "links/link", link: link
 
+hr
 - if current_user
-hr
-= link_to "home", links_path
-hr
+  = link_to "home", links_path
+  hr
+- else
+  = link_to "sign up", sign_up_path

@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, :authorize_request, only: [:show]
-
   def update
     if current_user.update(user_params)
       flash[:notice] = "User updated"
@@ -9,13 +7,6 @@ class UsersController < ApplicationController
     end
 
     redirect_to links_path
-  end
-
-  def show
-    # User.includes(:public_links).find(params[:id]) does not seem to hit the custom
-    # find method from Sluggable for some reason
-    @user = User.find(params[:id])
-    @links = @user.public_links
   end
 
   private
