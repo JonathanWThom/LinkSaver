@@ -1,0 +1,17 @@
+span.margin-right-10
+  = render "links/favorites", link: link
+- if link.public?
+  span
+    = fa_icon "globe"
+- else
+  span
+    = fa_icon "lock"
+- if link.html_preview
+  span.margin-left-10 = link.reading_time
+  span.margin-left-10 = link_to "preview", link_path(link)
+
+= render "tags/add_form", link: link
+
+span.delete = link_to "x", link_path(link),
+  data: {confirm: "are you sure?"},
+  method: :delete

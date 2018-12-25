@@ -4,6 +4,7 @@
 @import "neat";
 
 @import "refills/flashes";
+@import "font-awesome";
 
 .container {
   margin-left: 25%;
@@ -18,7 +19,6 @@
 .delete {
   a {
     color: black;
-    margin-left: 20px;
     text-decoration: none;
   }
 }

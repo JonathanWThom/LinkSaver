@@ -114,6 +114,8 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.25)
     flutie (2.0.0)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     formulaic (0.4.0)
       activesupport
       capybara
@@ -353,6 +355,7 @@ DEPENDENCIES
   factory_girl_rails
   faker!
   flutie
+  font-awesome-rails
   formulaic
   high_voltage
   honeybadger

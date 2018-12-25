@@ -1,18 +1,8 @@
 - @links.each do |link|
-  = link_to "Link is public: #{link.public}", link_path(link, public: !link.public), method: :patch
-  p.link.display-inline.margin-left-10
-    span.margin-right-10
-      = render "links/favorites", link: link
-    span = link_to link.title_or_url, link.url
-    - if link.html_preview
-      span.margin-left-10 = link.reading_time
-      span.margin-left-10 = link_to "preview", link_path(link)
-
-    = render "tags/add_form", link: link
-
-    span.delete = link_to "x", link_path(link),
-      data: {confirm: "are you sure?"},
-      method: :delete
+  div.link
+    = link_to link.title_or_url, link.url
+  div.margin-bottom-15
+    = render "links/metadata", link: link
 
 - paginate = paginate || false
 
