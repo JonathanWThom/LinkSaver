@@ -1,0 +1,8 @@
+p Links default to private.
+p
+  span
+    | Your public links can be found at 
+  span
+    = link_to user_url(current_user)
+
+= render "users/display_name_form"

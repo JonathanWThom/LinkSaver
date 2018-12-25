@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :categories, only: [:create]
   post 'auth/login', to: 'authentication#api_authenticate'
   resources :link_searches, only: [:create]
+  resources :users, only: [:update], path: ""
 end

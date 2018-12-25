@@ -30,12 +30,15 @@
   }
 }
 
-.link_url, .tag_title, .link_search_search {
+.link_url,
+.tag_title,
+.link_search_search,
+.user_display_name {
   display: inline-block;
   margin-right: 20px;
 }
 
-#link_url, #tag_title {
+#link_url, #tag_title, #user_display_name {
   width: 25vw;
 }
 
