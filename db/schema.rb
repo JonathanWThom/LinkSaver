@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20181225155326) do
     t.index ["tag_id"], name: "index_categories_on_tag_id"
   end
 
+  create_table "data_migrations", id: false, force: :cascade do |t|
+    t.string "version", null: false
+    t.index ["version"], name: "unique_data_migrations", unique: true
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
