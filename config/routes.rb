@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :show] do
     resources :links, only: [:index], path: "", to: "users/public_links#index"
   end
+  patch "color_modes", to: "color_modes#update"
 end

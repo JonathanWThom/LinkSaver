@@ -14,7 +14,9 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag "link.png" %>
-
+  <% if cookies[:dark_mode] %>
+    <link href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" rel="stylesheet"></link>
+  <% end %>
 </head>
 <body class="<%= body_class %>">
   <div class="container">
@@ -24,6 +26,11 @@
     <%= yield %>
     <% if signed_in? %>
       <%= button_to "sign out", sign_out_path, method: :delete %>
+    <% end %>
+    <% if cookies[:dark_mode] %>
+      <%= link_to "light mode", color_modes_path, method: :patch %>
+    <% else %>
+      <%= link_to "dark mode", color_modes_path, method: :patch %>
     <% end %>
     <%= render "javascript" %>
     <%= render "css_overrides" %>
