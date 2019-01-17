@@ -2,8 +2,8 @@ module Sluggable
   extend ActiveSupport::Concern
 
   included do
-    after_create :create_slug
-    after_update :create_slug, if: :display_name_changed?
+    before_create :create_slug
+    before_update :create_slug, if: :display_name_changed?
     validates_uniqueness_of :slug, allow_blank: true
 
     def to_param
