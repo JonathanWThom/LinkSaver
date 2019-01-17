@@ -1,5 +1,9 @@
 h3 = "search results for: #{@search}"
 
 = link_to "all", links_path
+
+- if @links.any?
 hr
-= render "links/list"
+  = render "links/list"
+- else
+  p no links found
