@@ -7,6 +7,7 @@ end
 
 ruby "2.4.1"
 
+gem "airbrake"
 gem "autoprefixer-rails"
 gem "clearance"
 gem "data_migrate"
