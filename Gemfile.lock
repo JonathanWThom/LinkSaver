@@ -362,6 +362,7 @@ DEPENDENCIES
   data_migrate
   database_cleaner
   delayed_job_active_record
+  dotenv
   dotenv-rails
   factory_girl_rails
   faker!
