@@ -24,12 +24,6 @@
     <h3>link saver</h3>
     <hr>
     <%= yield %>
-    <hr>
-    <% if cookies[:dark_mode] %>
-      <%= link_to "light mode", color_modes_path, method: :patch %>
-    <% else %>
-      <%= link_to "dark mode", color_modes_path, method: :patch %>
-    <% end %>
     <% if signed_in? %>
       <hr>
       <%= button_to "sign out", sign_out_path, method: :delete %>

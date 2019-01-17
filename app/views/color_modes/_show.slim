@@ -1,0 +1,5 @@
+hr
+- if cookies[:dark_mode]
+  = link_to "light mode", color_modes_path, method: :patch
+- else
+  = link_to "dark mode", color_modes_path, method: :patch
