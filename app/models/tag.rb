@@ -3,7 +3,7 @@ class Tag < ActiveRecord::Base
   has_many :categories
   has_many :links, through: :categories
   validates :title, presence: true
-  validates_uniqueness_of :color, :title
+  validates_uniqueness_of :color, :title, scope: :user
 
   def rgb
     color[1..-1].scan(/../).map {|color| color.to_i(16)}.join(",")
