@@ -15,9 +15,7 @@ module Sluggable
         self.slug = self.display_name.parameterize
       else
         mail = Mail::Address.new(email)
-        ## This could cause problems if two email addresses had the same local
-        ## string but a different domain
-        self.slug = mail.local.parameterize
+        self.slug = mail.local.parameterize + SecureRandom.hex(7)
       end
     end
 
