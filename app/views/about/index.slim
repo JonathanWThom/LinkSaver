@@ -1,0 +1,47 @@
+h3 Personal link aggregator
+hr
+
+h3 Save
+ul
+  li Save an unlimited number of links.
+
+h3 Sort, search, and filter
+ul
+  li Sort by oldest or newest links.
+  li Powerful search.
+  li Categorize and filter by tag.
+  li Mark favorites.
+
+h3 Get it read
+ul
+  li Read now feature takes you to one of your links immediately.
+  li Featured links to help you prioritize.
+  li Links can be previewed and read from inside of link saver, even if the original webpage is gone.
+  li Read time estimates help you decide what to read now, and what to save for later.
+
+h3 Get it gone
+ul
+  li Delete all links older than a month automatically - or keep them forever!
+
+h3 Share
+ul
+  li Show the world what you're reading right now via a public url.
+  li All links default to private - you only share the links you want to.
+
+h3 Suit your eyes
+ul
+  li
+    span
+      | Options for&nbsp
+    - if cookies[:dark_mode]
+      span dark
+      span &nbspand&nbsp
+      span
+        = link_to "light mode", color_modes_path, method: :patch
+    - else
+      span
+        = link_to "dark", color_modes_path, method: :patch
+      span &nbspand&nbsp
+      span light mode
+    span .
+br

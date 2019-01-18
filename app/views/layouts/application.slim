@@ -1,0 +1,34 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="ROBOTS" content="NOODP"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
+    title
+      = title
+    = javascript_include_tag :application
+    = stylesheet_link_tag :application, media: "all"
+    = csrf_meta_tags
+    = favicon_link_tag "link.png"
+    - if cookies[:dark_mode]
+      = stylesheet_link_tag :solarized_dark, media: "all"
+  |  <body class="
+  = body_class
+  | ">
+  .container
+    = render "flashes"
+    h3
+      | link saver
+    hr
+    = yield
+    - if signed_in?
+      hr
+      = button_to "sign out", sign_out_path, method: :delete
+    - if !signed_in?
+      hr
+      - if current_page?(about_path)
+        = link_to "home", root_path
+      - else
+        = link_to "about", about_path
+    = render "javascript"
+    = render "css_overrides"
