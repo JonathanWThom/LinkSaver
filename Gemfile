@@ -39,6 +39,7 @@ gem "uglifier"
 gem "validate_url"
 
 group :development do
+  gem "letter_opener"
   gem "listen"
   gem "rack-mini-profiler", require: false
   gem "spring"

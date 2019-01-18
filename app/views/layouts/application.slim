@@ -26,9 +26,10 @@ html[lang="en"]
       = button_to "sign out", sign_out_path, method: :delete
     - if !signed_in?
       hr
-      - if current_page?(about_path)
-        = link_to "home", root_path
-      - else
+      - if current_page?(root_path)
         = link_to "about", about_path
+      - else
+        = link_to "home", root_path
+
     = render "javascript"
     = render "css_overrides"
