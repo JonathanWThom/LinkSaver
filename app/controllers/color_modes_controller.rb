@@ -5,7 +5,7 @@ class ColorModesController < ApplicationController
     if cookies[:dark_mode]
       cookies.delete(:dark_mode)
     else
-      cookies[:dark_mode] = true
+      cookies.permanent[:dark_mode] = true
     end
 
     redirect_back fallback_location: links_path
