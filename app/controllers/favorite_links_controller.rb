@@ -1,6 +1,6 @@
 class FavoriteLinksController < ApplicationController
   before_action :get_link, only: [:update]
-  
+
   def index
     @links = Link.favorites(current_user)
   end
@@ -13,7 +13,7 @@ class FavoriteLinksController < ApplicationController
     end
 
     respond_to do |format|
-      format.js
+      format.js { render layout: false }
       format.html { redirect_to links_path(current_user) }
     end
   end
