@@ -1,0 +1,14 @@
+h3 settings
+hr
+
+= link_to "home", links_path
+hr
+
+p
+  = render "users/display_name"
+hr
+
+p
+  = render "links/delete_old_links", paginate: true
+
+= render "color_modes/show"

@@ -6,6 +6,6 @@ class Users::UserLinkDeletionSettingsController < ApplicationController
       current_user.update(delete_links: true)
     end
 
-    redirect_to links_path
+    redirect_to user_settings_path(current_user)
   end
 end

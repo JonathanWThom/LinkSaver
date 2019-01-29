@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       flash[:error] = current_users.errors.full_messages.to_sentence
     end
 
-    redirect_to links_path
+    redirect_to user_settings_path(current_user)
   end
 
   private

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :link_searches, only: [:create, :index]
   resources :users, only: [:update, :show] do
     resources :links, only: [:index], path: "", to: "users/public_links#index"
+    resources :settings, only: [:index]
   end
   patch "color_modes", to: "color_modes#update"
   get "about", to: "about#index"

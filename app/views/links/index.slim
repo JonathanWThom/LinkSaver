@@ -35,11 +35,4 @@ p
   = render "tags/tags"
 hr
 
-p
-  = render "users/display_name"
-hr
-
-p
-  = render "links/delete_old_links", paginate: true
-  
-= render "color_modes/show"
+= link_to "settings", user_settings_path(current_user)
