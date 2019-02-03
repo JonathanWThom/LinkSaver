@@ -42,6 +42,7 @@ group :development do
   gem "letter_opener"
   gem "listen"
   gem "rack-mini-profiler", require: false
+  gem "rails_real_favicon"
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
