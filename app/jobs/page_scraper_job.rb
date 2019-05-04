@@ -18,19 +18,18 @@ class PageScraperJob < ApplicationJob
 
   attr_reader :url
 
+  def get_page
+    open(url, UserAgent.new.run)
+  end
+
   def parse_html
-    uri = URI(url)
-    Net::HTTP.get_response(uri).body
+    get_page.read
   end
 
   def parse_pdf
-    io = open(url)
-    reader = PDF::Reader.new(io)
-    text = ""
-    reader.pages.each do |page|
-      text.concat(page.text)
-    end
-
-    text
+    reader = PDF::Reader.new(get_page)
+    reader.pages.map do |page|
+      page.text
+    end.join
   end
 end
