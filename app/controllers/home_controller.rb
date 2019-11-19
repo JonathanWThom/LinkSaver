@@ -1,3 +1,4 @@
+# typed: true
 class HomeController < ApplicationController
   skip_before_action :require_login
   before_action :redirect_logged_in_user, if: :current_user

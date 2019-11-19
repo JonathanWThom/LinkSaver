@@ -1,3 +1,4 @@
+# typed: true
 class LinkDeletionWorker
   include Sidekiq::Worker
 

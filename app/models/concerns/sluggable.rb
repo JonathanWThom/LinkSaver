@@ -1,3 +1,4 @@
+# typed: false
 module Sluggable
   extend ActiveSupport::Concern
 

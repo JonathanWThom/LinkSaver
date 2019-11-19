@@ -1,3 +1,4 @@
+# typed: false
 module LinkHelper
   def random_link_path
     current_user.links.random.first.url

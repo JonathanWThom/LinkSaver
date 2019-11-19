@@ -1,3 +1,4 @@
+# typed: false
 module ExternalRequestHelpers
     # stub_request(:any, /api.github.com/).to_rack(FakeGitHub)
   def stub_nokogiri

@@ -1,3 +1,4 @@
+# typed: true
 class User < ApplicationRecord
   include Clearance::User
   include Sluggable

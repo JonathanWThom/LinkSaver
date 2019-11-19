@@ -1,3 +1,4 @@
+# typed: strict
 require "active_job/logging"
 
 ActiveSupport::Notifications.unsubscribe("enqueue.active_job")

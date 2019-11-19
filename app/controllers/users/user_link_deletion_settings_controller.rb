@@ -1,3 +1,4 @@
+# typed: true
 class Users::UserLinkDeletionSettingsController < ApplicationController
   def update
     if current_user.delete_links

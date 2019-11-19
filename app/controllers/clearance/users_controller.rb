@@ -1,3 +1,4 @@
+# typed: false
 class Clearance::UsersController < Clearance::BaseController
   if respond_to?(:before_action)
     before_action :redirect_signed_in_users, only: [:create, :new]

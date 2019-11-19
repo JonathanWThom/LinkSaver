@@ -1,3 +1,4 @@
+# typed: false
 class TagsController < ApplicationController
   before_action :find_tag, only: [:show, :destroy]
 

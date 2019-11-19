@@ -1,3 +1,4 @@
+# typed: false
 describe LinksController do
   attr_reader :user
 

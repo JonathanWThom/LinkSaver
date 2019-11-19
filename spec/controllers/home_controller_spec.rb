@@ -1,3 +1,4 @@
+# typed: false
 describe HomeController do
   describe "GET home#index", type: :request do
     it "will succeed" do

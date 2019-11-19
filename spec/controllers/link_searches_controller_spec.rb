@@ -1,3 +1,4 @@
+# typed: false
 describe LinkSearchesController do
   attr_reader :user
 

@@ -1,3 +1,4 @@
+# typed: true
 class AuthenticateUser
   def initialize(email, password)
     @email = email

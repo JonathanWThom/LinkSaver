@@ -1,3 +1,4 @@
+# typed: strict
 Capybara.javascript_driver = :webkit
 
 Capybara::Webkit.configure do |config|

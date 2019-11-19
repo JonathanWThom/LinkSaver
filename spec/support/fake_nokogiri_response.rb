@@ -1,3 +1,4 @@
+# typed: false
 require "sinatra/base"
 
 class FakeNokogiriResponse < Sinatra::Base

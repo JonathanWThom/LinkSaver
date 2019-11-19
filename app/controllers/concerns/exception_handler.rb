@@ -1,3 +1,4 @@
+# typed: false
 module ExceptionHandler
   class ExpiredSignature < StandardError; end
   extend ActiveSupport::Concern

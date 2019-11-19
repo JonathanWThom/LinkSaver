@@ -1,3 +1,4 @@
+# typed: true
 class Users::PublicLinksController < ApplicationController
   skip_before_action :require_login, :authorize_request
   def index

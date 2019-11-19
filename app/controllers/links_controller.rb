@@ -1,3 +1,4 @@
+# typed: false
 class LinksController < ApplicationController
   before_action :get_link, only: [:show, :destroy, :update]
 

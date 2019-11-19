@@ -1,3 +1,4 @@
+# typed: true
 class PageScraperJob < ApplicationJob
   def perform(link_id)
     link = Link.find(link_id)

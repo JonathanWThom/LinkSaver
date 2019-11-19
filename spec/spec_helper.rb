@@ -1,3 +1,4 @@
+# typed: false
 if ENV.fetch("COVERAGE", false)
   require "simplecov"
 

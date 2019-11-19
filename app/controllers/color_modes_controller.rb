@@ -1,3 +1,4 @@
+# typed: true
 class ColorModesController < ApplicationController
   skip_before_action :authorize_request, :require_login
 

@@ -1,3 +1,4 @@
+# typed: true
 class FavoriteLinksController < ApplicationController
   before_action :get_link, only: [:update]
 

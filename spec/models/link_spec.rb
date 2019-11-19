@@ -1,3 +1,4 @@
+# typed: false
 describe Link do
   it { should belong_to :user }
   it { should have_many :categories }

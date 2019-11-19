@@ -1,3 +1,4 @@
+# typed: true
 class CategoriesController < ApplicationController
   before_action :find_category
 

@@ -1,3 +1,4 @@
+# typed: false
 class UsersController < ApplicationController
   def update
     if current_user.update(user_params)

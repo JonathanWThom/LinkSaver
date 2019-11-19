@@ -1,3 +1,4 @@
+# typed: false
 FactoryGirl.define do
   factory :link do
     user
