@@ -23,7 +23,6 @@ gem "jquery-rails"
 gem "jwt"
 gem "kaminari"
 gem "neat", "~> 2.1"
-gem "newrelic_rpm"
 gem "pdf-reader"
 gem "pg"
 gem "puma"
@@ -82,4 +81,5 @@ end
 
 group :production do
   gem "rack-timeout"
+  gem "newrelic_rpm"
 end

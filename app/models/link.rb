@@ -7,7 +7,7 @@ class Link < ActiveRecord::Base
 
   scope :newest_first, -> { order(created_at: :desc) }
   scope :oldest_first, -> { order(created_at: :asc) }
-  scope :random, -> { order("RANDOM()") }
+  scope :random, -> { order(Arel.sql("RANDOM()")) }
   scope :one_month_old, -> { where("updated_at < ?", 1.month.ago) }
   scope :favorites, ->(user) { where(favorite: true).where(user_id: user.id) }
   scope :search, ->(search) { where("title ILIKE ?", "%#{search}%") }

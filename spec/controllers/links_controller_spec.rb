@@ -6,7 +6,7 @@ describe LinksController do
   end
 
   describe "GET links#index", type: :request, format: :html do
-    it "will succeed" do
+    it "will succeed and redirect" do
       get links_path(as: user)
       expect(response.status).to eq(200)
     end
