@@ -1,7 +1,7 @@
 = link_to "Back", :back
 hr
 h3
-  = link_to @link.title_or_url, @link.url
+  = link_to @link.title_or_address, @link.address
 p
   = "Reading time: ~ #{@link.reading_time}"
 iframe srcdoc=@link.html_preview

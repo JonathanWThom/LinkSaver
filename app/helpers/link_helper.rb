@@ -1,7 +1,7 @@
 # typed: false
 module LinkHelper
   def random_link_path
-    current_user.links.random.first.url
+    current_user.links.random.first.address
   end
 
   def link_count
