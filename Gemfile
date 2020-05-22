@@ -69,7 +69,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit"
+  gem "webdrivers"
   gem "database_cleaner"
   gem "formulaic"
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
