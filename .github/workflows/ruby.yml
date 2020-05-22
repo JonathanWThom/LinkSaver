@@ -15,6 +15,6 @@ jobs:
         ruby-version: 2.7
     - name: Build and test with RSpec
       run: |
-        gem install bundler
+        gem install bundler:1.17.2
         bundle install --jobs 4 --retry 3
         bundle exec rspec
