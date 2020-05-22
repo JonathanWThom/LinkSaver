@@ -1,10 +1,13 @@
 # typed: false
 class Link < ActiveRecord::Base
+  attr_encrypted :address, key: Rails.application.credentials[:link_address_secret_key] 
+  before_save :set_address
+
   belongs_to :user
   has_many :categories
   has_many :tags, through: :categories
 
-  validates :url, presence: true, url: true
+  #validates :url, presence: true, url: true
 
   scope :newest_first, -> { order(created_at: :desc) }
   scope :oldest_first, -> { order(created_at: :asc) }
@@ -37,5 +40,11 @@ class Link < ActiveRecord::Base
 
   def reading_time
     html_preview.reading_time :format => :approx
+  end
+
+  private
+
+  def set_address
+    self.address = self.url
   end
 end

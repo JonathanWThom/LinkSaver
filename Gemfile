@@ -8,6 +8,7 @@ end
 ruby "2.7.1" 
 
 gem "airbrake"
+gem "attr_encrypted"
 gem "autoprefixer-rails"
 gem "bootsnap"
 gem "bourbon", "~> 5.0.0.beta.8"

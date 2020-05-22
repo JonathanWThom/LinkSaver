@@ -59,6 +59,8 @@ GEM
     airbrake-ruby (4.8.0)
       rbtree3 (~> 0.5)
     arel (9.0.0)
+    attr_encrypted (3.1.0)
+      encryptor (~> 3.0.0)
     autoprefixer-rails (9.7.2)
       execjs
     awesome_print (1.8.0)
@@ -119,6 +121,7 @@ GEM
       railties (>= 3.2, < 6.1)
     email_validator (1.6.0)
       activemodel
+    encryptor (3.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_girl (4.9.0)
@@ -388,6 +391,7 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  attr_encrypted
   autoprefixer-rails
   awesome_print
   bootsnap

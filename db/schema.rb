@@ -1,4 +1,3 @@
-# typed: strong
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_061111) do
+ActiveRecord::Schema.define(version: 2020_05_22_215731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,9 +53,13 @@ ActiveRecord::Schema.define(version: 2019_02_05_061111) do
     t.text "html_preview"
     t.boolean "favorite", default: false
     t.boolean "public", default: false
+    t.boolean "read", default: false
+    t.string "encrypted_address"
+    t.string "encrypted_address_iv"
     t.index ["created_at"], name: "index_links_on_created_at"
     t.index ["favorite"], name: "index_links_on_favorite"
     t.index ["public"], name: "index_links_on_public"
+    t.index ["read"], name: "index_links_on_read"
     t.index ["title"], name: "index_links_on_title"
     t.index ["updated_at"], name: "index_links_on_updated_at"
     t.index ["url"], name: "index_links_on_url"
