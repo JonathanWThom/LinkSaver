@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_230139) do
+ActiveRecord::Schema.define(version: 2020_05_22_232347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 2020_05_22_230139) do
     t.boolean "read", default: false
     t.string "encrypted_address"
     t.string "encrypted_address_iv"
+    t.string "encrypted_html"
+    t.string "encrypted_html_iv"
+    t.string "encrypted_page_title"
+    t.string "encrypted_page_title_iv"
     t.index ["created_at"], name: "index_links_on_created_at"
     t.index ["favorite"], name: "index_links_on_favorite"
     t.index ["public"], name: "index_links_on_public"

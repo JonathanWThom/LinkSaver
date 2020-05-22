@@ -1,6 +1,11 @@
 # typed: false
 class Link < ActiveRecord::Base
   attr_encrypted :address, key: Rails.application.credentials[:link_address_secret_key] 
+  attr_encrypted :html, key: Rails.application.credentials[:link_html_secret_key]
+  attr_encrypted :page_title, key: Rails.application.credentials[:link_page_title_secret_key]
+
+  before_save :set_html
+  before_save :set_page_title
 
   belongs_to :user
   has_many :categories
@@ -39,5 +44,15 @@ class Link < ActiveRecord::Base
 
   def reading_time
     html_preview.reading_time :format => :approx
+  end
+
+  private
+
+  def set_html
+    self.html = html_preview
+  end
+
+  def set_page_title
+    self.page_title = title
   end
 end
