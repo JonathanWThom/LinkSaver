@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_232347) do
+ActiveRecord::Schema.define(version: 2020_05_22_234610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_232347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "title"
-    t.text "html_preview"
     t.boolean "favorite", default: false
     t.boolean "public", default: false
     t.boolean "read", default: false
@@ -63,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_232347) do
     t.index ["favorite"], name: "index_links_on_favorite"
     t.index ["public"], name: "index_links_on_public"
     t.index ["read"], name: "index_links_on_read"
-    t.index ["title"], name: "index_links_on_title"
     t.index ["updated_at"], name: "index_links_on_updated_at"
     t.index ["user_id"], name: "index_links_on_user_id"
   end
