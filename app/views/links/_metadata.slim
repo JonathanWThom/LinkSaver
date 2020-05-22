@@ -13,7 +13,7 @@ div
         = fa_icon "lock",
           title: "Link is private. Click icon to set to public.",
           class: "clickable no-link-styling"
-  - if link.html_preview
+  - if link.html
     span.margin-left-10 = link.reading_time
     span.margin-left-10 = link_to "preview", link_path(link)
 

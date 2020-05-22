@@ -1,12 +1,11 @@
-# typed: true
 class PageScraperJob < ApplicationJob
   def perform(link_id)
     link = Link.find(link_id)
     @address = link.address
 
     link.update(
-      html_preview: html_preview,
-      title: title
+      html: html,
+      page_title: page_title
     )
   end
 
@@ -28,7 +27,7 @@ class PageScraperJob < ApplicationJob
     PDF::Reader.new(page).pages(&:text).join
   end
 
-  def html_preview
+  def html
     if File.extname(address) ==  ".pdf"
       parse_pdf
     else
@@ -36,7 +35,7 @@ class PageScraperJob < ApplicationJob
     end
   end
 
-  def title
+  def page_title
     Nokogiri::HTML(page).css("title")[0]&.text
   end
 end
