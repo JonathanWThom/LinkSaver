@@ -1,39 +1,55 @@
-name: Ruby
+# .github/workflows/main.yaml
+name: RSpec 
 
 on: [push]
 
 jobs:
-  build:
-
+  vm-job:
     runs-on: ubuntu-latest
-
     services:
-      db:
-        image: postgres:11
+      postgres:
+        image: postgres:12.3
         env:
-          POSTGRES_PASSWORD: postgres
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: postgres
+        ports:
+        - 5432/tcp
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Ruby 2.7
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.7
-    - name: Build and test with Rake
+        ruby-version: 2.7.1
+        
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - name: install PostgreSQL client
+      run: sudo apt-get install libpq-dev
+
+    - name: Build and create DB
       env:
-        PGHOST: 127.0.0.1
+        PGHOST: localhost
         PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }}
         RAILS_ENV: test
       run: |
-        sudo apt-get -yqq install libpq-dev
         gem install bundler:1.17.2
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
-        bundle exec rails db:create
-        bundle exec rails db:migrate
-        bundle exec rails test
+        bin/rails db:setup
+    - name: Run tests
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }}
+        RAILS_ENV: test
+      run: |
+        bundle exec rspec
