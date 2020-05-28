@@ -1,9 +1,8 @@
-# typed: false
 describe Link do
   it { should belong_to :user }
   it { should have_many :categories }
   it { should have_many(:tags).through(:categories) }
-  it { should validate_presence_of :url }
+  it { should validate_presence_of :address }
 
   describe ".featured" do
     attr_reader :user, :link_5
@@ -45,7 +44,7 @@ describe Link do
       link_2 = create(:link, user: user)
       link_3 = create(:link, user: user)
       link_4 = create(:link, user: user)
-      expect(Link.random_link([link_1.url], user)).to_not eq(link_1)
+      expect(Link.random_link([link_1.address], user)).to_not eq(link_1)
     end
 
     it "should not return a link that does not below to the user" do
@@ -56,9 +55,9 @@ describe Link do
   describe ".search" do
     it "will return links, case insensitively" do
       user = create(:user)
-      link_1 = create(:link, user: user, title: "New York Times")
-      link_2 = create(:link, user: user, title: "Washington Post")
-      links = user.links.search("new")
+      link_1 = create(:link, user: user, page_title: "New York Times")
+      link_2 = create(:link, user: user, page_title: "Washington Post")
+      links = user.links.search("new", user)
       expect(links).to eq ([link_1])
     end
   end

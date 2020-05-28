@@ -15,10 +15,15 @@ class Link < ActiveRecord::Base
   scope :random, -> { order(Arel.sql("RANDOM()")) }
   scope :one_month_old, -> { where("updated_at < ?", 1.month.ago) }
   scope :favorites, ->(user) { where(favorite: true).where(user_id: user.id) }
-  scope :search, ->(search) { where("title ILIKE ?", "%#{search}%") }
   scope :non_favorites, -> { where(favorite: false) }
 
   paginates_per 10
+
+  def self.search(query, user)
+    where(user: user).where.not(encrypted_page_title: nil).select do |link|
+      [link.page_title, link.address].any? { |text| Regexp.new(query, "i") =~ text }
+    end
+  end
 
   def self.featured(user)
     if user.links.count > 3

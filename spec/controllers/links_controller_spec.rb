@@ -31,7 +31,7 @@ describe LinksController do
 
     it "will succeed with good params" do
       expect {
-        post "/links", params: { link: {url: "http://helloworld.com"} }
+        post "/links", params: { link: {address: "http://helloworld.com"} }
       }.to change(Link, :count)
     end
 
@@ -42,7 +42,7 @@ describe LinksController do
     end
 
     it "will redirect" do
-      post "/links", params: { link: {url: "http://helloworld.com"} }
+      post "/links", params: { link: {address: "http://helloworld.com"} }
       expect(response.status).to eq(302)
     end
   end
