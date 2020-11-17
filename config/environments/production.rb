@@ -1,15 +1,10 @@
 # typed: strict
 Rails.application.configure do
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailgun
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.smtp_settings = {
-    :user_name => ENV["MAILGUN_SMTP_LOGIN"],
-    :password => ENV["MAILGUN_SMTP_PASSWORD"],
-    :domain => "linksaver.app",
-    :address => ENV["MAILGUN_SMTP_SERVER"],
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+  config.action_mailer.mailgun_settings = {
+		api_key: ENV["MAILGUN_API_KEY"],
+		domain: ENV["MAILGUN_DOMAIN"]
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
