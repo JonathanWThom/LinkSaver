@@ -12,7 +12,7 @@ module Sluggable
     end
 
     def create_slug
-      if display_name
+      if display_name.present?
         self.slug = self.display_name.parameterize
       else
         mail = Mail::Address.new(email)
