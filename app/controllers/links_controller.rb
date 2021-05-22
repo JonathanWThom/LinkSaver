@@ -10,11 +10,6 @@ class LinksController < ApplicationController
     end
 
     @tags = current_user.tags
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @links, status: 200 }
-    end
   end
 
   def create
@@ -22,10 +17,7 @@ class LinksController < ApplicationController
     if @link.valid?
       PageScraperJob.perform_later(@link.id)
       flash[:notice] = "Link added"
-      respond_to do |format|
-        format.html { redirect_to links_path }
-        format.json { render json: @link.to_json, status: :created }
-      end
+      redirect_to links_path
     else
       flash[:error] = "Invalid URL"
       bad_request
@@ -42,10 +34,7 @@ class LinksController < ApplicationController
     if params[:public]
       if @link.update(public: !@link.public)
         flash[:notice] = "Link updated"
-        respond_to do |format|
-          format.html { redirect_back fallback_location: links_path }
-          format.json { render json: @link.to_json, status: :ok }
-        end
+        redirect_back fallback_location: links_path
       else
         flash[:error] = "Link failed to update"
         bad_request
@@ -64,9 +53,6 @@ class LinksController < ApplicationController
   end
 
   def bad_request
-    respond_to do |format|
-      format.html { redirect_to links_path }
-      format.json { render json: @link.errors, status: :bad_request }
-    end
+    redirect_to links_path
   end
 end

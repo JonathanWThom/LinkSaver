@@ -13,9 +13,9 @@ development: &default
 test:
   <<: *default
   database: <%= ENV.fetch("POSTGRES_DB", "link_saver_test") %>
-  host:     <%= ENV.fetch("PGHOST", "localhost") %>
-  username: <%= ENV.fetch("POSTGRES_USER", nil) %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD", nil) %>
+  host:     <%= ENV.fetch("PGHOST", "db") %>
+  username: <%= ENV.fetch("POSTGRES_USER", "postgres") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD", "password") %>
   port:     <%= ENV.fetch("PGPORT", 5432) %>
 
 production: &deploy
