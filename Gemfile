@@ -47,7 +47,6 @@ group :development do
   gem "listen"
   gem "rack-mini-profiler", require: false
   gem "rails_real_favicon"
-  gem "sorbet"
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"

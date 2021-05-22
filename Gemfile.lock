@@ -349,9 +349,6 @@ GEM
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
-    sorbet (0.5.6064)
-      sorbet-static (= 0.5.6064)
-    sorbet-static (0.5.6064-x86_64-linux)
     spring (2.1.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -461,7 +458,6 @@ DEPENDENCIES
   sinatra
   skylight
   slim
-  sorbet
   spring
   spring-commands-rspec
   sprockets (>= 3.0.0)
