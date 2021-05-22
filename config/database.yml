@@ -12,11 +12,11 @@ development: &default
 
 test:
   <<: *default
-  database: <%= ENV.fetch("PG_DATABASE", "link_saver_test") %>
-  host:     <%= ENV.fetch("PG_HOST", "localhost") %>
-  username: <%= ENV.fetch("PG_USER", nil) %>
-  password: <%= ENV.fetch("PG_PASSWORD", nil) %>
-  port:     <%= ENV.fetch("PG_PORT", 5432) %>
+  database: <%= ENV.fetch("POSTGRES_DB", "link_saver_test") %>
+  host:     <%= ENV.fetch("PGHOST", "localhost") %>
+  username: <%= ENV.fetch("POSTGRES_USER", nil) %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD", nil) %>
+  port:     <%= ENV.fetch("PGPORT", 5432) %>
 
 production: &deploy
   encoding: utf8
