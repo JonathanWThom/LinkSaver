@@ -1,4 +1,4 @@
 .tag-form.display-inline.margin-left-10 id="tag_link_#{link.id}"
-  - current_user.tags.each do |tag|
+  - TagPresenter.wrap(current_user.tags).each do |tag|
     = link_to categories_path(link_id: link, tag_id: tag), remote: true, method: :post do
       .circle style="#{tag.circle_style(link)}"

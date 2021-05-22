@@ -1,10 +1,5 @@
-# typed: ignore
 describe LinksController do
-  attr_reader :user
-
-  before(:each) do
-    @user = create(:user)
-  end
+  let(:user) { create(:user) }
 
   describe "GET links#index", type: :request, format: :html do
     it "will succeed and redirect" do
@@ -69,6 +64,15 @@ describe LinksController do
 
     it "will redirect" do
       expect(response.status).to eq(302)
+    end
+  end
+
+  describe "PATCH links#update", type: :request do
+    let(:link) { create(:link, user: user) }
+    let(:patch!) { patch link_path(link, params: { public: !link.public }, as: user) }
+
+    it "updates the public attribute" do
+      expect { patch! }.to change { link.reload.public }
     end
   end
 end
