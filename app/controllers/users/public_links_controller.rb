@@ -1,6 +1,6 @@
 # typed: true
 class Users::PublicLinksController < ApplicationController
-  skip_before_action :require_login, :authorize_request
+  skip_before_action :require_login
   def index
     # User.includes(:public_links).find(params[:id]) does not seem to hit the custom
     # find method from Sluggable for some reason
