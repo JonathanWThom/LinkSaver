@@ -1,4 +1,7 @@
+require "open-uri"
+
 class PageScraperJob < ApplicationJob
+
   def perform(link_id)
     link = Link.find(link_id)
     @address = link.address
@@ -14,7 +17,7 @@ class PageScraperJob < ApplicationJob
   attr_reader :address
 
   def page
-    @_page ||= open(address, UserAgent.new.run)
+    @_page ||= URI.open(address, UserAgent.new.run)
   end
 
   def parse_html
