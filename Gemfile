@@ -48,7 +48,7 @@ group :development, :test do
   gem "awesome_print"
   gem "bundler-audit", ">= 0.5.0", require: false
   gem "dotenv-rails"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rb-readline"
