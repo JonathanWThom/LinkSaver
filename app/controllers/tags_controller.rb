@@ -26,7 +26,7 @@ class TagsController < ApplicationController
   private
 
   def find_tag
-    @tag = Tag.find_by_id(params[:id])
+    @tag = TagPresenter.new(Tag.find(params[:id]))
   end
 
   def tag_params

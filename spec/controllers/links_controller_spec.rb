@@ -25,7 +25,6 @@ describe LinksController do
 
   describe "POST links#create", type: :request do
     before(:each) do
-      stub_nokogiri
       get links_path(as: user)
     end
 

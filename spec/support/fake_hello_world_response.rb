@@ -1,9 +1,8 @@
-# typed: false
 require "sinatra/base"
 
-class FakeNokogiriResponse < Sinatra::Base
+class FakeHelloWorldResponse < Sinatra::Base
   get "/" do
-    html_response 200, "fake_nokogiri_response.html"
+    html_response 200, "fake_hello_world_response.html"
   end
 
   private

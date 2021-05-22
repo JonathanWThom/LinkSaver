@@ -1,7 +1,9 @@
-# typed: false
+# frozen_string_literal: true
+
 module ExternalRequestHelpers
-    # stub_request(:any, /api.github.com/).to_rack(FakeGitHub)
-  def stub_nokogiri
-    stub_request(:any, "/helloworld.com/").to_rack(FakeNokogiriResponse)
+  HELLO_WORLD_ADDRESS = "https://helloworld.com"
+
+  def stub_hello_world_response
+    stub_request(:any, Regexp.new(HELLO_WORLD_ADDRESS)).to_rack(FakeHelloWorldResponse)
   end
 end

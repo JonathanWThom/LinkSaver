@@ -9,7 +9,7 @@ class LinksController < ApplicationController
       @links = current_user.links.newest_first.page params[:page]
     end
 
-    @tags = current_user.tags
+    @tags = TagPresenter.wrap(current_user.tags)
   end
 
   def create
