@@ -4,9 +4,9 @@ class LinksController < ApplicationController
 
   def index
     if params[:oldest]
-      @links = current_user.links.oldest_first.page params[:page]
+      @links = links.oldest_first.page params[:page]
     else
-      @links = current_user.links.newest_first.page params[:page]
+      @links = links.newest_first.page params[:page]
     end
 
     @tags = TagPresenter.wrap(current_user.tags)
@@ -54,5 +54,9 @@ class LinksController < ApplicationController
 
   def bad_request
     redirect_to links_path
+  end
+
+  def links
+    @_links ||= current_user.links
   end
 end
