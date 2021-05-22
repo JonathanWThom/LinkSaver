@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-services:
+  services:
       postgres:
         image: postgres:13
         ports: ["5432:5432"]
@@ -18,17 +18,18 @@ services:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-steps:
+  steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-- name: Set up Ruby
+
+    - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
         ruby-version: 2.7.2
-- name: Install PostgreSQL 13 client
+    - name: Install PostgreSQL 13 client
       run: |
         sudo apt-get -yqq install libpq-dev
-- name: Cache Ruby Gems
+    - name: Cache Ruby Gems
       uses: actions/cache@v2
       with:
         path: vendor/bundle
@@ -40,27 +41,14 @@ steps:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
-- name: Run Tests
+
+    - name: Run Tests
       env:
         PG_DATABASE: postgres
         PG_HOST: localhost
         PG_USER: postgres
         PG_PASSWORD: password
         RAILS_ENV: test
-        WITH_COVERAGE: true
-        DISABLE_SPRING: 1
       run: |
         bin/rails db:setup
         bundle exec rake test
-- name: Upload Code Coverage
-      uses: actions/upload-artifact@v2
-      with:
-        name: code-coverage
-        path: coverage/
-- name: Formatting and Security Checks
-      run: |
-        bundle exec rubocop
-        bundle exec brakeman -z
-        gem install bundle-audit
-        bundle-audit update
-        bundle-audit
