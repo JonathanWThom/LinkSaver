@@ -1,6 +1,7 @@
-# typed: false
+# frozen_string_literal: true
+
 class Link < ActiveRecord::Base
-  attr_encrypted :address, key: Rails.application.credentials[:link_address_secret_key] 
+  attr_encrypted :address, key: Rails.application.credentials[:link_address_secret_key]
   attr_encrypted :html, key: Rails.application.credentials[:link_html_secret_key]
   attr_encrypted :page_title, key: Rails.application.credentials[:link_page_title_secret_key]
 
@@ -9,6 +10,7 @@ class Link < ActiveRecord::Base
   has_many :tags, through: :categories
 
   validates :address, presence: true, url: true
+  validate :safe_link, on: :create
 
   scope :newest_first, -> { order(created_at: :desc) }
   scope :oldest_first, -> { order(created_at: :asc) }
@@ -46,5 +48,13 @@ class Link < ActiveRecord::Base
 
   def reading_time
     html.reading_time :format => :approx
+  end
+
+  private
+
+  def safe_link
+    if SafeLinkClient.new(address).unsafe?
+      errors.add(:base, "unsafe link")
+    end
   end
 end
