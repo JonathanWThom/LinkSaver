@@ -15,3 +15,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - hosts_service
+  hosts_service:
+    image: jonathanwthom/hosts
+    ports:
+      - "8080:8080"
