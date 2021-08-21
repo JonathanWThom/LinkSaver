@@ -22,9 +22,7 @@ class PageScraperJob < ApplicationJob
   end
 
   def parse_html
-    content = page.read
-    page.rewind
-    content
+    Readability::Document.new(page.read).content
   end
 
   def parse_pdf
