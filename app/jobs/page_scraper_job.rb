@@ -5,6 +5,7 @@ class PageScraperJob < ApplicationJob
   def perform(link_id)
     link = Link.find(link_id)
     @address = link.address
+    return false if SafeLinkClient.new(address).unsafe?
 
     link.update(
       html: html,

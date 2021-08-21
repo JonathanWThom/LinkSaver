@@ -24,15 +24,19 @@ class SafeLinkClient
 
   attr_reader :address
 
+  def host
+    URI(address).host
+  end
+
   def safe_link_api_uri
     @_safe_link_api_uri ||= Rails.application.credentials[Rails.env.to_sym][:safe_link_api_uri]
   end
 
-  def encoded_address
-    Base64.encode64(address)
+  def encoded_and_hashed_address
+    Base64.encode64(OpenSSL::HMAC.digest("sha256", "", host))
   end
 
   def url
-    "#{safe_link_api_uri}?url=#{encoded_address}"
+    "#{safe_link_api_uri}?url=#{encoded_and_hashed_address}"
   end
 end

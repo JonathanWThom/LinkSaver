@@ -10,7 +10,6 @@ class Link < ActiveRecord::Base
   has_many :tags, through: :categories
 
   validates :address, presence: true, url: true
-  validate :safe_link, on: :create
 
   scope :newest_first, -> { order(created_at: :desc) }
   scope :oldest_first, -> { order(created_at: :asc) }
@@ -48,13 +47,5 @@ class Link < ActiveRecord::Base
 
   def reading_time
     html.reading_time :format => :approx
-  end
-
-  private
-
-  def safe_link
-    if SafeLinkClient.new(address).unsafe?
-      errors.add(:base, "unsafe link")
-    end
   end
 end
