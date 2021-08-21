@@ -24,7 +24,11 @@ class PageScraperJob < ApplicationJob
   def parse_html
     content = page.read
     page.rewind
-    Readability::Document.new(content).content
+    Readability::Document.new(
+      content
+      tags: %w[p div h1 h2 h3 h4 h5 h6 address article aside footer header main nav
+section blockquote dd dl dt figcaption figure hr li ol ul pre b strong code data em span img]
+    ).content
   end
 
   def parse_pdf
