@@ -26,8 +26,7 @@ class PageScraperJob < ApplicationJob
     page.rewind
     Readability::Document.new(
       content
-      tags: %w[p div h1 h2 h3 h4 h5 h6 address article aside footer header main nav
-section blockquote dd dl dt figcaption figure hr li ol ul pre b strong code data em span img]
+      tags: %w[p div h1 h2 h3 h4 h5 h6 address article aside footer header main nav section blockquote dd dl dt figcaption figure hr li ol ul pre b strong code data em span img caption col table tbody td tfoot th thead tr label details menu summary]
     ).content
   end
 
