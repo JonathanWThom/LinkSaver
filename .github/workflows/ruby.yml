@@ -1,58 +1,21 @@
-name: Rails
+name: Build
 on: push
-
 jobs:
-  verify:
-    name: Build
+  test:
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:13
-        env:
-          POSTGRES_USER: rails_github_actions
-          POSTGRES_DB: rails_github_actions_test
-          POSTGRES_PASSWORD: postgres
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
+    env:
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
     steps:
-      - uses: actions/checkout@v1
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.7.x
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.2.0
-      - name: Install dependencies
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker-compose up -d
+      - name: Generate dotenv
+        id: generate-dotenv
         run: |
-          sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-          yarn install
-      - name: Setup test database
-        env:
-          RAILS_ENV: test
-          PGHOST: localhost
-          POSTGRES_DB: rails_github_actions_test
-          POSTGRES_USER: rails_github_actions
-          POSTGRES_PASSWORD: postgres
-        run: |
-          rake db:create db:migrate
+          cp .env.test .env
+          echo "RAILS_MASTER_KEY=$RAILS_MASTER_KEY" >> .env
+      - name: Setup
+        run: docker-compose run web rails db:create db:test:prepare
+      - name: Test
+        run: docker-compose run web rspec
 
-      - name: Run tests
-        env:
-          PGHOST: localhost
-          POSTGRES_DB: rails_github_actions_test
-          POSTGRES_USER: rails_github_actions
-          POSTGRES_PASSWORD: postgres
-          PGPORT: ${{ job.services.postgres.ports[5432] }}
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          RAILS_ENV: test
-        run: rspec
