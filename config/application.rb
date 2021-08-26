@@ -12,6 +12,7 @@ module LinkSaver
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.action_mailer.default_url_options = { host: ENV["SMTP_ADDRESS"] }
+    config.active_job.queue_adapter = :sidekiq
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

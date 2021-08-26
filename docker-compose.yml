@@ -16,7 +16,19 @@ services:
     depends_on:
       - db
       - hosts_service
+      - sidekiq
   hosts_service:
     image: jonathanwthom/hosts
     ports:
       - "8080:8080"
+  sidekiq:
+    build: .
+    volumes:
+      - .:/app
+    links:
+      - db
+      - redis
+    command: bundle exec sidekiq
+  redis:
+    image: redis:alpine
+

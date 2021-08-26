@@ -1,5 +1,10 @@
-# typed: false
+require "sidekiq/web"
+
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount Sidekiq::Web => "/sidekiq"
+  end
+
   root "home#index"
   resources :links, only: [:index, :create, :destroy, :show, :update]
   get "featured", to: "featured_links#index"
