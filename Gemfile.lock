@@ -94,16 +94,12 @@ GEM
       railties (>= 5.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.8)
+    connection_pool (2.2.5)
     crack (0.4.4)
     crass (1.0.6)
     data_migrate (6.5.0)
       rails (>= 5.0)
     database_cleaner (1.8.5)
-    delayed_job (4.1.8)
-      activesupport (>= 3.0, < 6.1)
-    delayed_job_active_record (4.1.4)
-      activerecord (>= 3.0, < 6.1)
-      delayed_job (>= 3.0, < 5)
     diff-lcs (1.4.4)
     docile (1.4.0)
     domain_name (0.5.20190701)
@@ -277,6 +273,7 @@ GEM
     rb-readline (0.5.5)
     rbtree3 (0.6.0)
     readingtime (0.4.0)
+    redis (4.4.0)
     regexp_parser (1.8.2)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
@@ -322,6 +319,10 @@ GEM
       rubyzip (>= 1.2.2)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
+    sidekiq (6.2.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -395,7 +396,6 @@ DEPENDENCIES
   clearance
   data_migrate
   database_cleaner
-  delayed_job_active_record
   dotenv
   dotenv-rails
   factory_bot_rails
@@ -429,6 +429,7 @@ DEPENDENCIES
   ruby-readability
   sass-rails (~> 5.0)
   shoulda-matchers
+  sidekiq
   simple_form
   simplecov
   sinatra
