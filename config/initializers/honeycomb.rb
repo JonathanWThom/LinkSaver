@@ -2,14 +2,12 @@ class CustomSampler
   extend Honeycomb::DeterministicSampler
 
   def self.sample(fields)
-    sample_rate = 1
-
     if fields["redis.command"]
-      sample_rate = 100
+      return [false, 0]
     end
 
-    if should_sample(sample_rate, fields["trace.trace_id"])
-      return [true, sample_rate]
+    if should_sample(1, fields["trace.trace_id"])
+      return [true, 1]
     end
 
     return [false, 0]
@@ -20,12 +18,12 @@ Honeycomb.configure do |config|
   config.write_key = Rails.application.credentials[Rails.env.to_sym][:honeycomb_key]
   config.dataset = "link-saver-#{Rails.env}"
   config.presend_hook do |fields|
-    if fields["name"] == "redis" && fields.has_key?("redis.command")
-      # remove potential PII from the redis command
-      if fields["redis.command"].respond_to? :split
-        fields["redis.command"] = fields["redis.command"].split.first
-      end
-    end
+    #if fields["name"] == "redis" && fields.has_key?("redis.command")
+      ## remove potential PII from the redis command
+      #if fields["redis.command"].respond_to? :split
+        #fields["redis.command"] = fields["redis.command"].split.first
+      #end
+    #end
     if fields["name"] == "sql.active_record"
       # remove potential PII from the active record events
       fields.delete("sql.active_record.binds")
