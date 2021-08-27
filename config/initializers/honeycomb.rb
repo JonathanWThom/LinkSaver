@@ -1,3 +1,21 @@
+class CustomSampler
+  extend Honeycomb::DeterministicSampler
+
+  def self.sample(fields)
+    sample_rate = 1
+
+    if fields["redis.command"]
+      sample_rate = 100
+    end
+
+    if should_sample(sample_rate, fields["trace.trace_id"])
+      return [true, sample_rate]
+    end
+
+    return [false, 0]
+  end
+end
+
 Honeycomb.configure do |config|
   config.write_key = Rails.application.credentials[Rails.env.to_sym][:honeycomb_key]
   config.dataset = "link-saver-#{Rails.env}"
@@ -24,4 +42,8 @@ Honeycomb.configure do |config|
     send_data.action_controller
     deliver.action_mailer
   ].freeze
+
+  config.sample_hook do |fields|
+    CustomSampler.sample(fields)
+  end
 end
