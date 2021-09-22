@@ -17,5 +17,5 @@ jobs:
       - name: Setup
         run: docker-compose run web rails db:create db:test:prepare
       - name: Test
-        run: docker-compose run web rspec
+        run: docker-compose run web bundle exec rspec
 
