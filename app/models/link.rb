@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Link < ActiveRecord::Base
+  include Csvable
+
   attr_encrypted :address, key: Rails.application.credentials[:link_address_secret_key]
   attr_encrypted :html, key: Rails.application.credentials[:link_html_secret_key]
   attr_encrypted :page_title, key: Rails.application.credentials[:link_page_title_secret_key]
