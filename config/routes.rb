@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:create]
   post 'auth/login', to: 'authentication#api_authenticate'
   resources :link_searches, only: [:create, :index]
+  resources :link_exports, only: [:index]
   resources :users, only: [:update, :show] do
     resources :links, only: [:index], path: "", to: "users/public_links#index"
     resources :settings, only: [:index]
-    resources :link_exports, only: [:index]
   end
   patch "color_modes", to: "color_modes#update"
   get "about", to: "about#index"
