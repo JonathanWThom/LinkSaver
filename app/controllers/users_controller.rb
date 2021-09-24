@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     redirect_to user_settings_path(current_user)
   end
 
+  def destroy
+    current_user.destroy!
+    redirect_to root_path
+  end
+
   private
 
   def user_params

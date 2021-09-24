@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#api_authenticate'
   resources :link_searches, only: [:create, :index]
   resources :link_exports, only: [:index]
-  resources :users, only: [:update, :show] do
+  resources :users, only: [:update, :show, :destroy] do
     resources :links, only: [:index], path: "", to: "users/public_links#index"
     resources :settings, only: [:index]
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LinkSearchesController, type: :request do
+describe LinkExportsController, type: :request do
   describe "GET /link_exports" do
     let(:link_owner) { create(:user) }
     let(:current_user) { link_owner }
