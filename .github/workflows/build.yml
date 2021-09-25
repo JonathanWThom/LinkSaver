@@ -7,13 +7,13 @@ jobs:
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
     steps:
       - uses: actions/checkout@v2
+      - name: Build
+        run: docker-compose up -d
       - name: Generate dotenv
         id: generate-dotenv
         run: |
           cp .env.test .env
           echo "RAILS_MASTER_KEY=$RAILS_MASTER_KEY" >> .env
-      - name: Build
-        run: docker-compose up -d
       - name: Setup
         run: docker-compose run web rails db:create db:test:prepare
       - name: Test
