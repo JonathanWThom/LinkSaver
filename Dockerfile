@@ -22,5 +22,4 @@ EXPOSE 3000
 # Configure the main process to run when running the image
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
-# Fix me - set env dynamically
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+RUN RAILS_ENV=${RAILS_ENV} bundle exec rake assets:precompile
