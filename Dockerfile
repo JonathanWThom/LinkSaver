@@ -1,7 +1,4 @@
 # syntax=docker/dockerfile:1
-
-ARG RAILS_ENV=production
-
 FROM ruby:2.7.4
 RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client
 RUN npm install -g yarn
