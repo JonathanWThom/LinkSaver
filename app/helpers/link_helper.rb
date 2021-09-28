@@ -5,6 +5,6 @@ module LinkHelper
   end
 
   def link_count
-    current_user.links.count
+    @_link_count ||= current_user.links.count
   end
 end
