@@ -26,7 +26,7 @@ gem "pdf-reader"
 gem "pg"
 gem "puma"
 gem "rack-canonical-host"
-gem "rails", "~> 5.2.6"
+gem "rails", "~> 6.0.4.1"
 gem "readingtime"
 gem "ruby-readability", require: "readability"
 gem "sass-rails", "~> 5.0"
@@ -54,7 +54,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "rb-readline"
-  gem "rspec-rails", "~> 3.6"
+  gem "rspec-rails"
 end
 
 group :test do
