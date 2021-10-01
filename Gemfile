@@ -1,10 +1,5 @@
 source "https://rubygems.org"
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 ruby "3.0.2"
 
 gem "airbrake"
@@ -16,10 +11,10 @@ gem "dotenv"
 gem "font-awesome-rails"
 gem "flutie"
 gem "high_voltage"
+gem "honeycomb-beeline"
 gem "jquery-rails"
 gem "kaminari"
 gem "mailgun_rails"
-gem "honeycomb-beeline"
 gem "pdf-reader"
 gem "pg"
 gem "puma"
@@ -27,11 +22,11 @@ gem "rack-canonical-host"
 gem "rails", "~> 6.1.4.1"
 gem "readingtime"
 gem "ruby-readability", require: "readability"
-gem "sass-rails", "~> 5.0"
+gem "sass-rails"
 gem "sidekiq"
 gem "simple_form"
 gem "slim"
-gem "sprockets", ">= 3.0.0"
+gem "sprockets"
 gem "title"
 gem "uglifier"
 gem "validate_url"
@@ -46,7 +41,7 @@ end
 
 group :development, :test do
   gem "awesome_print"
-  gem "bundler-audit", ">= 0.5.0", require: false
+  gem "bundler-audit", require: false
   gem "dotenv-rails"
   gem "factory_bot_rails"
   gem "pry-byebug"
@@ -56,10 +51,9 @@ group :development, :test do
 end
 
 group :test do
-  gem "webdrivers"
   gem "database_cleaner"
   gem "formulaic"
-  gem "faker", git: "https://github.com/stympy/faker.git"
+  gem "faker"
   gem "launchy"
   gem "rails-controller-testing"
   gem "rexml"
@@ -67,10 +61,11 @@ group :test do
   gem "simplecov", require: false
   gem "sinatra"
   gem "timecop"
+  gem "webdrivers"
   gem "webmock"
 end
 
 group :production do
-  gem "rack-timeout"
   gem "newrelic_rpm"
+  gem "rack-timeout"
 end
