@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.7.4"
+ruby "3.0.2"
 
 gem "airbrake"
 gem "attr_encrypted"
@@ -62,6 +62,7 @@ group :test do
   gem "faker", git: "https://github.com/stympy/faker.git"
   gem "launchy"
   gem "rails-controller-testing"
+  gem "rexml"
   gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "sinatra"
