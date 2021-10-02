@@ -12,24 +12,22 @@ html[lang="en"]
     = render "application/favicon"
     - if cookies[:dark_mode]
       = stylesheet_link_tag :solarized_dark, media: "all"
-  |  <body class="
-  = body_class
-  | ">
-  .container
-    = render "flashes"
-    h3
-      | link saver
-    hr
-    = yield
-    - if signed_in?
+  body
+    .container
+      = render "flashes"
+      h3
+        | link saver
       hr
-      = button_to "sign out", sign_out_path, method: :delete
-    - if !signed_in?
-      hr
-      - if current_page?(root_path)
-        = link_to "about", about_path
-      - else
-        = link_to "home", root_path
+      = yield
+      - if signed_in?
+        hr
+        = button_to "sign out", sign_out_path, method: :delete
+      - if !signed_in?
+        hr
+        - if current_page?(root_path)
+          = link_to "about", about_path
+        - else
+          = link_to "home", root_path
 
-    = render "javascript"
-    = render "css_overrides"
+      = render "javascript"
+      = render "css_overrides"
