@@ -48,8 +48,8 @@ group :development, :test do
 end
 
 group :test do
+  gem "capybara"
   gem "database_cleaner"
-  gem "formulaic"
   gem "faker"
   gem "launchy"
   gem "rails-controller-testing"

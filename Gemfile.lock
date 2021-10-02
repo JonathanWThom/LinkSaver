@@ -141,10 +141,6 @@ GEM
       rake
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
-    formulaic (0.4.1)
-      activesupport
-      capybara
-      i18n
     globalid (0.5.2)
       activesupport (>= 5.0)
     guess_html_encoding (0.0.11)
@@ -402,6 +398,7 @@ DEPENDENCIES
   awesome_print
   bootsnap
   bundler-audit
+  capybara
   clearance
   data_migrate
   database_cleaner
@@ -410,7 +407,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-rails
-  formulaic
   honeycomb-beeline
   jquery-rails
   kaminari
