@@ -57,7 +57,6 @@ group :test do
   gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "sinatra"
-  gem "timecop"
   gem "webdrivers"
   gem "webmock"
 end
