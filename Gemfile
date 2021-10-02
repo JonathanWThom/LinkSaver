@@ -25,7 +25,6 @@ gem "sidekiq"
 gem "simple_form"
 gem "slim"
 gem "sprockets"
-gem "title"
 gem "uglifier"
 gem "validate_url"
 
