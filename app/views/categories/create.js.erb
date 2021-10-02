@@ -1,2 +1,4 @@
-var new_partial = "<%= j render 'tags/add_form', link: @link %>";
-$("#tag_link_" + "<%= @link.id %>").replaceWith(new_partial)
+rawTagForm = "<%= j render 'tags/add_form', link: @link %>";
+wrapper = document.createElement("div");
+wrapper.innerHTML = rawTagForm;
+document.getElementById("tag_link_<%= @link.id %>").replaceWith(wrapper.firstChild);
