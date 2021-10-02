@@ -1,2 +1,5 @@
-new_partial = "<%= j render 'links/favorites', link: @link %>";
-$('.favorite[data-link-id="<%= @link.id %>"]').replaceWith(new_partial);
+rawFavorite = "<%= j render 'links/favorites', link: @link %>";
+wrapper = document.createElement("div");
+wrapper.innerHTML = rawFavorite;
+favorite = wrapper.firstChild;
+document.querySelector(".favorite[data-link-id='<%= @link.id %>']").replaceWith(favorite);
