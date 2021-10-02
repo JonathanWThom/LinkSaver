@@ -215,7 +215,6 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
-    newrelic_rpm (8.0.0)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -419,7 +418,6 @@ DEPENDENCIES
   letter_opener
   listen
   mailgun_rails
-  newrelic_rpm
   pdf-reader
   pg
   pry-byebug
