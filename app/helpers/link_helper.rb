@@ -1,4 +1,5 @@
-# typed: false
+# frozen_string_literal: true
+
 module LinkHelper
   def random_link_path
     current_user.links.random.first.address

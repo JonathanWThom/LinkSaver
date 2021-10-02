@@ -1,5 +1,6 @@
-# typed: strict
+# frozen_string_literal: true
+
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
-  layout 'mailer'
+  default from: "donotreply@linksaver.app"
+  layout "mailer"
 end
