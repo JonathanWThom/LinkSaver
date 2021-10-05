@@ -2,7 +2,6 @@ require 'simplecov'
 SimpleCov.start
 
 require "webmock/rspec"
-require "timecop"
 require "rails_helper"
 
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
