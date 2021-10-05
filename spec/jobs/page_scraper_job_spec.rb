@@ -13,6 +13,7 @@ describe PageScraperJob do
 
     before do
       stub_hello_world_response
+      stub_allowed_link_response
       PageScraperJob.perform_now(link.id)
     end
 
