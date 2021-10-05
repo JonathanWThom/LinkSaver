@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe UsersController, type: :request do
-  describe "DELETE /users/:user_id" do
+  describe "DELETE /users/:id" do
     let(:user) { create(:user) }
     let!(:link) { create(:link, user: user) }
     let!(:tag) { create(:tag, user: user) }
@@ -36,6 +36,33 @@ describe UsersController, type: :request do
       expect do
         delete!
       end.to change { Category.count }.to 0
+    end
+  end
+
+  describe "PATCH /users/:id" do
+    let(:update!) { patch user_path(user, as: user), params: params }
+
+    let(:params) { { user: { display_name: new_display_name } } }
+    let(:user) { create(:user) }
+    let(:new_display_name) { "asdfasdf" }
+
+    context "valid params" do
+
+      it "updates the user" do
+        expect do
+          update!
+        end.to change { user.reload.display_name }.to new_display_name
+      end
+    end
+
+    context "invalid params" do
+      before { create(:user, display_name: new_display_name) }
+
+      it "does not update the user" do
+        expect do
+          update!
+        end.to_not change { user.reload.display_name }
+      end
     end
   end
 end

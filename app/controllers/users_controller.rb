@@ -1,10 +1,11 @@
-# typed: false
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:notice] = "User updated"
     else
-      flash[:error] = current_users.errors.full_messages.to_sentence
+      flash[:error] = current_user.errors.full_messages.to_sentence
     end
 
     redirect_to user_settings_path(current_user)
