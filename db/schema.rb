@@ -24,9 +24,6 @@ ActiveRecord::Schema.define(version: 2022_01_30_052546) do
     t.index ["tag_id"], name: "index_categories_on_tag_id"
   end
 
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
-  end
-
   create_table "links", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
