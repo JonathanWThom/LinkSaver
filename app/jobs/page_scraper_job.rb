@@ -3,7 +3,9 @@ require "open-uri"
 class PageScraperJob < ApplicationJob
 
   def perform(link_id)
-    link = Link.find(link_id)
+    link = Link.find_by(id: link_id)
+    return if link.blank?
+
     @address = link.address
     return false if SafeLinkClient.new(address).unsafe?
 
