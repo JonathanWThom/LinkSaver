@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_032142) do
+ActiveRecord::Schema.define(version: 2022_01_30_052546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 2021_08_26_032142) do
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_categories_on_link_id"
     t.index ["tag_id"], name: "index_categories_on_tag_id"
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "links", force: :cascade do |t|
@@ -36,6 +39,9 @@ ActiveRecord::Schema.define(version: 2021_08_26_032142) do
     t.string "encrypted_html_iv"
     t.string "encrypted_page_title"
     t.string "encrypted_page_title_iv"
+    t.string "tmp_address"
+    t.text "tmp_html"
+    t.string "tmp_page_title"
     t.index ["created_at"], name: "index_links_on_created_at"
     t.index ["favorite"], name: "index_links_on_favorite"
     t.index ["public"], name: "index_links_on_public"
