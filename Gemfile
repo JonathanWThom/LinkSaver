@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.0.2"
+ruby "3.1.0"
 
 gem "airbrake"
 gem "attr_encrypted"
@@ -13,6 +13,7 @@ gem "honeycomb-beeline"
 gem "jquery-rails"
 gem "kaminari"
 gem "mailgun_rails"
+gem "net-smtp", require: false
 gem "pdf-reader"
 gem "pg"
 gem "puma"

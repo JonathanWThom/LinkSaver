@@ -116,6 +116,7 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     diff-lcs (1.5.0)
+    digest (3.1.0)
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -160,6 +161,7 @@ GEM
     http-form_data (2.3.0)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
+    io-wait (0.2.1)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -207,15 +209,20 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
-    mini_portile2 (2.7.1)
     minitest (5.15.0)
     msgpack (1.4.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    net-protocol (0.1.2)
+      io-wait
+      timeout
+    net-smtp (0.3.1)
+      digest
+      net-protocol
+      timeout
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.1)
-      mini_portile2 (~> 2.7.0)
+    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     pdf-reader (2.9.0)
       Ascii85 (~> 1.0)
@@ -365,6 +372,7 @@ GEM
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
+    timeout (0.2.0)
     ttfunk (1.7.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -392,7 +400,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   airbrake
@@ -416,6 +424,7 @@ DEPENDENCIES
   letter_opener
   listen
   mailgun_rails
+  net-smtp
   pdf-reader
   pg
   pry-byebug
@@ -447,7 +456,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.1.0p0
 
 BUNDLED WITH
-   2.2.22
+   2.3.6
