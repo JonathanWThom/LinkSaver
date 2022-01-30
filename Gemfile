@@ -13,6 +13,8 @@ gem "honeycomb-beeline"
 gem "jquery-rails"
 gem "kaminari"
 gem "mailgun_rails"
+gem "net-imap", require: false
+gem "net-pop", require: false
 gem "net-smtp", require: false
 gem "pdf-reader"
 gem "pg"
